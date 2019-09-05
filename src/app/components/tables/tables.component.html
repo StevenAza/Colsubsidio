@@ -1,0 +1,18 @@
+<table>
+  <thead>
+    <th *ngFor="let item of Cabeceras"> {{ item }} </th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of Data; let i = index">
+      <td *ngFor="let col of atributos">
+        <span>{{ item[col] }}</span>
+      </td>
+      <td>
+        <button (click)="editar(item, i)" class="success">Editar</button>
+      </td>
+      <td>
+        <button class="danger" (click)="eliminar(i)">Eliminar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
