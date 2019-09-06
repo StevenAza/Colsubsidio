@@ -2,7 +2,7 @@
 body{
     padding: 0;
     margin: 0;
-    font-family: 'Arial';
+    font-family: 'Roboto','Arial';
 }
 *{
     box-sizing: content-box; 
@@ -12,7 +12,10 @@ body{
     margin: 0 auto;
 }
 .mt-30{
-    margin-top: 8em;
+    margin-top: 3em;
+}
+.border{
+   border-bottom: 1px solid grey;
 }
 button{
     appearance: none;
@@ -26,13 +29,26 @@ button{
         background-color: #AD1457;
         color: white;
     }
+    &:active, &:focus{
+        outline: none;
+        box-shadow: none;
+    }
+    &:hover{
+        opacity: .8;
+    }
 }
 .Form{
-    margin: 0 auto;
-    width: 40%;
+    position: fixed;
+    height: auto;
+    top: 20%;
+    z-index: 111111;
+    left: 22%;
+    width: 50%;
+    background-color: white;
     padding: 3em;
-    border-radius: 1em;
-    border: 1px solid #80808052;
+    -webkit-box-shadow: 10px 10px 300px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 300px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 300px 0px rgba(0,0,0,0.75);
     .group_input{
         margin-bottom: 15px;
         label{
@@ -41,14 +57,20 @@ button{
         input{
             width: 100%;
             padding: 1em;
+            border-radius: 10px;
+            border: 1px solid gray;
         }
     }
-    button{
-        background-color: #00796B;
-        color: white;
+    div.button{
         display: flex;
         width: 100%;
         justify-content: center;
+        button{
+            &:last-child{
+                background-color: #00796B;
+                color: white;
+            }
+            width: 50%;
+        }
     }
-
 }

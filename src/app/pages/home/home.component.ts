@@ -12,20 +12,22 @@ export class HomeComponent implements OnInit {
     'Nombres',
     'Dirección',
     'Teléfono',
+    'Cuentas',
     'Eliminar',
     'Editar'
   ]
   attr: Array<any> =[
     'nombre',
     'direccion',
-    'telefono'
-
+    'telefono',
+    'cuenta'
   ]
   textButton: string = "Registrar";
   isRegister: boolean = true;
   myForm: FormGroup;
   idItem: number;
   ShowR: boolean;
+  tituloCard: string = "Registro de usuarios";
 
   constructor(private servicio: BaseService,private formBuilder: FormBuilder) { }
 
@@ -51,6 +53,7 @@ export class HomeComponent implements OnInit {
     this.myForm.get('telefono').setValue(ind.telefono);
     this.textButton = "Editar";
     this.isRegister = false;
+    this.tituloCard = "Editar Usuarios";
   }
   Registrar(){
     if(this.isRegister){
@@ -61,5 +64,17 @@ export class HomeComponent implements OnInit {
       this.myForm.reset();
     }
 
+  }
+  Show(){
+    this.isRegister = true;
+    this.ShowR = true;
+    this.tituloCard = "Registro de usuarios";
+    this.textButton = "registrar";
+  }
+
+  cancelar(){
+    this.ShowR = false;
+    this.myForm.reset;
+    this.isRegister = true;
   }
 }

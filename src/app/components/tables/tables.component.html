@@ -4,8 +4,20 @@
   </thead>
   <tbody>
     <tr *ngFor="let item of Data; let i = index">
+
       <td *ngFor="let col of atributos">
-        <span>{{ item[col] }}</span>
+
+
+        <span *ngIf="col === 'cuenta'">
+           
+                <div *ngFor="let ind of item['cuenta']" class="border">
+                  <p>Número:  {{ ind.numero }}</p> 
+                  <p>Saldo:  $ {{ ind.saldo }}</p> 
+                </div>
+        </span>
+        <span *ngIf="col !== 'cuenta'">
+            {{ item[col] }}
+        </span>
       </td>
       <td>
         <button (click)="editar(item, i)" class="success">Editar</button>

@@ -5,11 +5,12 @@
     <div class="components">
         <app-tables (id)="idItem = $event" (del)="Eliminar($event)" (edit)="Editar($event)" [Data]="ListCli"
             [Cabeceras]="ths" [atributos]="attr"></app-tables>
-        <button (click)="ShowR = true" class="success">Nuevo Cliente</button>
+        <button (click)="Show()" class="success nuevo_cliente">Nuevo Cliente</button>
     </div>
     <div *ngIf="ShowR">
         <div class="Form">
             <form action="" [formGroup]="myForm" (ngSubmit)="Registrar()">
+                <h2>{{ tituloCard }}</h2>
                 <div class="group_input">
                     <label for="">Nombre</label>
                     <input type="text" formControlName="nombre" name="Nombre">
@@ -22,7 +23,11 @@
                     <label for="">Telefono</label>
                     <input type="number" formControlName="telefono" name="telefono">
                 </div>
-                <button type="submit">{{ textButton }}</button>
+                <div class="button">
+                        <button type="submit" (click)="cancelar()">Cancelar</button>
+                        <button type="submit">{{ textButton }}</button>
+                </div>
+             
             </form>
         </div>
     </div>
